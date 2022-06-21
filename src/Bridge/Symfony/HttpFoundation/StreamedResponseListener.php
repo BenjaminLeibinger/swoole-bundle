@@ -22,7 +22,7 @@ class StreamedResponseListener implements EventSubscriberInterface
     public function onKernelResponse(ResponseEvent $event): void
     {
         if ((method_exists($event, 'isMasterRequest') && !$event->isMasterRequest()) ||
-            (method_exists($event, 'isMasterRequest') && !$event->isMainRequest())
+            (method_exists($event, 'isMainRequest') && !$event->isMainRequest())
         ) {
             return;
         }
